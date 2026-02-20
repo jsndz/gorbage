@@ -9,17 +9,22 @@ const (
 )
 
 type Object struct {
-	oType    ObjectType
+	Marked   bool
+	OType    ObjectType
 	IntValue int
 	Head     *Object
 	Tail     *Object
+	Next     *Object
 }
 
 func (r *Runtime) NewObject(t ObjectType) *Object {
-	return &Object{
-		oType: t,
+	obj := &Object{
+		OType:  t,
+		Marked: false,
+		Next:   r.FirstObject,
 	}
-
+	r.FirstObject = obj
+	return obj
 }
 
 func (r *Runtime) PushInt(val int) {
@@ -39,3 +44,15 @@ func (r *Runtime) PushPair(val int) *Object {
 
 //  If we had a parser and an interpreter that called those functions, we’d have an honest to God language on our hands.
 // And, if we had infinite memory, it would even be able to run real programs
+
+// this is how we are mapping object to object like a Linked List
+// ```md
+// Runtime
+// └── firstObject ──► Object o2
+//                     ├── OType: TypeB
+//                     ├── Marked: false
+//                     └── next ──► Object o1
+//                                   ├── OType: TypeA
+//                                   ├── Marked: false
+//                                   └── next: nil
+// ```

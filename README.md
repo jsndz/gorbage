@@ -42,7 +42,7 @@ You have a pointers to those memory. These are the roots.
 From that root you can connect to other memory spaces that take memory in heap.
 Repeat that again and agian for every root and pointer you find you get a Graph.
 
-## First Algorithm for GC: Mark and Sweep
+## Algorithm for GC: Mark and Sweep
 
 So we have our graph. Then we can run the algorithm on the graph
 Simple steps really,
