@@ -4,8 +4,6 @@ Gorbage is a simple garbage collector written in go.
 The whole process is from the aritcle "https://journal.stuffwithstuff.com/2013/12/08/babys-first-garbage-collector/".
 Its written in C. But I am re-implementing it in golang.
 
-Kudos.
-
 ## What is GC
 
 garbage collector is a simple program that provides you infinite memory. Just kidding. 
@@ -49,6 +47,9 @@ Simple steps really,
  - Starting a root mark the entire Graph. 
    Marking indicates that memory is in still use since you are referencing to it.
    Every time you reach an object, set a “mark” bit on it to true.
- - Once marking is done find all object that have not marked and delete them.
+ - Once marking is done find all object that have not marked and delete them. 
+
+
+
 
  
