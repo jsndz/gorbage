@@ -1,5 +1,7 @@
 package lang
 
+import "fmt"
+
 // strong enum
 type ObjectType int
 
@@ -18,6 +20,7 @@ type Object struct {
 }
 
 func (r *Runtime) NewObject(t ObjectType) *Object {
+	fmt.Println("Created Object of type:", t)
 	obj := &Object{
 		OType:  t,
 		Marked: false,

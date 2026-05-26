@@ -1,6 +1,10 @@
 package gc
 
-import "github.com/jsndz/gorbage/lang"
+import (
+	"fmt"
+
+	"github.com/jsndz/gorbage/lang"
+)
 
 func MarkAll(r *lang.Runtime) {
 	for i := 0; i < r.StackSize; i++ {
@@ -9,6 +13,7 @@ func MarkAll(r *lang.Runtime) {
 }
 
 func Mark(obj *lang.Object) {
+	fmt.Println("Marked the object ", obj)
 	if obj == nil {
 		return
 	}
